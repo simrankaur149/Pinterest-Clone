@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% include ./partials/nav.ejs %>
+    <div class=" px-20 py-10">
+        <h1 class="text-3xl font-bold py-5">Create a new post</h1>
+        <form  action="createpost" method="post" enctype="multipart/form-data">
+            <input class="px-5 py-2 mt-3 w-[50%] " type="file" name="postimage" /><br>
+            <input class="px-5 py-2 border-2 border-black mt-3 w-[50%] rounded-md" type="text" name="title" placeholder="Title"/><br>
+            <textarea class="px-5 py-2 mt-3 w-[50%] rounded-md border-2 border-black" type="text" placeholder="Description" name="description"></textarea><br>
+            <input class="px-5 py-2 mt-3 w-[50%] bg-red-500 rounded-md" type="submit" value="Create Post"  />
+        </form>
+    </div>
+</body>
+</html>

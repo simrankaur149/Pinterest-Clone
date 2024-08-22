@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <title>Document</title>
+
+</head>
+<body>
+    <% include ./partials/nav.ejs %>
+    <div>
+        <div class="flex mt-10 flex-col justify-center items-center">
+            <form id="uploadForm" hidden action="/uploadImage" method="post" enctype="multipart/form-data" >
+                <input type="file" name="image"/>
+            </form>
+            <div class="relative">
+                <div id="uploadIcon" class="absolute  bg-white bottom-0 right-0 px-2 py-1 rounded-full">
+                    <i class="ri-pencil-line"></i>
+                </div>
+                <div class="w-32 h-32  rounded-full overflow-hidden bg-zinc-200">
+                <img class="w-full h-full object-cover" 
+                src="/images/uploads/<%= user.profileImage%>"/>
+                </div>
+
+            </div>
+            <h2 class="text-4xl font-bold"><%= user.fullname %></h2>
+            <h6>@<%= user.username %></h6>
+            <a class="bg-zinc-200 px-5 py-2 mt-2 rounded-lg" href="/edit">Edit</a><br>
+       
+            <a class="bg-red-500 text-white px-10 py-2 rounded-lg" href="/add">Add new post</a>
+        </div>
+
+
+        <div class="w-[80%] mx-auto mt-3 flex  flex-wrap items-center">
+            <div class="w-full h-[60%] card rounded-md  mr-10">
+               <img class="rounded-md w-48 h-32 object-cover " src="/images/uploads/<%= user?.posts[0]?.image %>" />
+               <a href="/show/posts" class="font-semibold">All Pins</a>
+               <h3><%= user.posts.length %> Pins</h3>
+            </div>
+        
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#uploadIcon').addEventListener('click',()=>{
+            document.querySelector('#uploadForm input').click();
+        })
+        document.querySelector('#uploadForm input').addEventListener('change',()=>{
+            document.querySelector('#uploadForm').submit();
+        })
+    </script>
+</body>
+
+</html>
