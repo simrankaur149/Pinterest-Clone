@@ -1,3 +1,5 @@
+
+Live  : https://pinterest-clone-06vi.onrender.com
 # Pinterest Clone
 
 This is a backend-focused Pinterest clone built using Node.js, Express, and MongoDB. The project implements essential features like image uploads and user authentication using the Passport package. Users can register, log in, and securely upload images. The app architecture follows best practices in RESTful API design, and the project is structured to support scalability and maintainability.
